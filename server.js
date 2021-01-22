@@ -19,8 +19,11 @@ app.use(express.static("public"));
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 
-mongoose.connect(process.env.MOGODB_URI || "", {
-    useNewUrlParser: true
+mongoose.connect(process.env.MOGODB_URI || "mongodb://localhost/fitnessDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 });
 
 
