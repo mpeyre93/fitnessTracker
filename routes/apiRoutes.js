@@ -15,6 +15,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/workouts", (req, res) => {
+        //post new workout
         db.Workout.create({}).then(newWorkout => {
             res.json(newWorkout);
         });
